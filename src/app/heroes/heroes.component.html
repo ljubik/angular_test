@@ -1,0 +1,42 @@
+<h2>My news page</h2>
+<ul class="page">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge" >{{hero.id}} </span>
+Дата {{hero.date}}	
+    <div class="title" ng-repeat = "row in title.rendered">
+         <h2>{{hero.title.rendered}}</h2>
+    </div>
+	 
+	 
+<div class="content-big" ng-repeat = "row in hero.content.rendered">
+
+
+<div ng-bind-html="expression">'{{ hero.content.rendered }}'</div>
+
+
+</div>
+<p>Захист від запису : {{hero.content.protected}}</p>
+
+ <br>Змінено {{hero.modified}}  Автор: {{hero.author}}
+ <br><a href="{{hero.link}}">{{hero.link}}</a>,
+ <br ><span class="links" ng-repeat = "item in hero._links">
+ <div ng-repeat = "row in _links"> {{hero._links.self}} </div>
+ </span>
+ </li>
+</ul>
+
+
+
+<div *ngIf="selectedHero">
+
+  <h2>{{ selectedHero.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedHero.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedHero.author" placeholder="name">
+    </label>
+  </div>
+
+</div>
