@@ -1,4 +1,4 @@
-export class News {
+export class hero {
   id: number;
   date: string;
   date_gmt: string;
@@ -10,7 +10,7 @@ export class News {
   type: string;
   link: string;
   title: string;
-  content: Expression;
+  content: string;
   excerpt: string;
   author: string;
   featured_media: number;

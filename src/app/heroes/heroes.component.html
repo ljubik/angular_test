@@ -1,29 +1,24 @@
 <h2>My news page</h2>
+<div class="container">
 <ul class="page">
-  <li *ngFor="let hero of heroes"
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-    <span class="badge" >{{hero.id}} </span>
-Дата {{hero.date}}	
-    <div class="title" ng-repeat = "row in title.rendered">
+  <li *ngFor="let hero of heroes" >
+    <span class="badge" >ID {{hero.id}} Дата {{hero.date}}</span> 
+	<div class="title" ng-repeat = "row in title.rendered">
          <h2>{{hero.title.rendered}}</h2>
     </div>
 	 
-	 
-<div class="content-big" ng-repeat = "row in hero.content.rendered">
-
-
-<div ng-bind-html="expression">'{{ hero.content.rendered }}'</div>
-
+<div class="content-big" ng-repeat = "row in hero.content" >
+<div ng-controller="ExampleController">
+<p [innerHTML]= "hero.content.rendered">{{hero.content.rendered}}</p>
+</div>
 
 </div>
-<p>Захист від запису : {{hero.content.protected}}</p>
+
+<p>Захист від копіювання : {{hero.content.protected}}</p>
 
  <br>Змінено {{hero.modified}}  Автор: {{hero.author}}
  <br><a href="{{hero.link}}">{{hero.link}}</a>,
- <br ><span class="links" ng-repeat = "item in hero._links">
- <div ng-repeat = "row in _links"> {{hero._links.self}} </div>
- </span>
+ <br >
  </li>
 </ul>
 
@@ -39,4 +34,5 @@
     </label>
   </div>
 
+</div>
 </div>
